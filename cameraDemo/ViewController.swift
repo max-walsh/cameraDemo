@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            imagePicker.mediaTypes = [kUTTypeImage as NSString as String, kUTTypeMovie as NSString as String]
+            imagePicker.mediaTypes = [kUTTypeImage as NSString as String/*, kUTTypeMovie as NSString as String*/]
             imagePicker.allowsEditing = false
             
             self.presentViewController(imagePicker, animated: true, completion: nil)
@@ -88,10 +88,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 UIImageWriteToSavedPhotosAlbum(image, self,
                     "image:didFinishSavingWithError:contextInfo:", nil)
                 //} else if mediaType.isEqualToString(kUTTypeMovie as! String) {
-            } else if mediaType == kUTTypeMovie as! String {
-                // Code to support video here
             }
             
+        }  else if mediaType == kUTTypeMovie as! String {
+            // Code to support video here
+            print("vido")
         }
     }
     
