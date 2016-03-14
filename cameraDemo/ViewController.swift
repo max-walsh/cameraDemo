@@ -15,6 +15,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var newMedia : Bool?
     
     @IBAction func useCamera(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) { // only camera not video?
+            
+            let imagePicker = UIImagePickerController()
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker.mediaTypes = [kUTTypeImage as NSString as String, kUTTypeMovie as NSString as String]
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+            
+            newMedia = true
+        } else {
+            let alert = UIAlertController(
+                title: "No Camera",
+                message: "Sorry, this device does not have a camera",
+                preferredStyle:  .Alert)
+            let action = UIAlertAction(
+                title: "OK",
+                style: .Default,
+                handler: nil)
+            alert.addAction(action)
+            presentViewController(alert, animated: true, completion: nil)
+            
+        }
+
     }
     
     
