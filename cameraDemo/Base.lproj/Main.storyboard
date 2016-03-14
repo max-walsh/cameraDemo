@@ -24,8 +24,16 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLY-y9-cXW">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Camera" id="BvJ-wM-wSx"/>
-                                    <barButtonItem title="Camera Roll" id="FzS-Pl-iUl"/>
+                                    <barButtonItem title="Camera" id="BvJ-wM-wSx">
+                                        <connections>
+                                            <action selector="useCamera:" destination="BYZ-38-t0r" id="lu5-rv-l4j"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Camera Roll" id="FzS-Pl-iUl">
+                                        <connections>
+                                            <action selector="useCameraRoll:" destination="BYZ-38-t0r" id="vdQ-4s-DbL"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
