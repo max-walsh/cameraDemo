@@ -40,6 +40,9 @@
                             <constraint firstItem="pLY-y9-cXW" firstAttribute="top" secondItem="d2n-wu-fpt" secondAttribute="bottom" constant="11" id="znG-8u-LOY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="d2n-wu-fpt" id="a0a-Zm-NA6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
