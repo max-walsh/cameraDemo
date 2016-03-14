@@ -69,6 +69,51 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        //func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        
+        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        //if mediaType.isEqualToString(kUTTypeImage as! String) {
+        if mediaType == kUTTypeImage as! String {
+            let image = info[UIImagePickerControllerOriginalImage]
+                as! UIImage
+            
+            imageView.image = image
+            
+            if (newMedia == true) {
+                UIImageWriteToSavedPhotosAlbum(image, self,
+                    "image:didFinishSavingWithError:contextInfo:", nil)
+                //} else if mediaType.isEqualToString(kUTTypeMovie as! String) {
+            } else if mediaType == kUTTypeMovie as! String {
+                // Code to support video here
+            }
+            
+        }
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
+        
+        if error != nil {
+            let alert = UIAlertController(title: "Save Failed",
+                message: "Failed to save image",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let cancelAction = UIAlertAction(title: "OK",
+                style: .Cancel, handler: nil)
+            
+            alert.addAction(cancelAction)
+            self.presentViewController(alert, animated: true,
+                completion: nil)
+        }
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 
 }
