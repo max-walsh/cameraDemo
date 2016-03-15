@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					F11F3F6D1C89F5610053AB35 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = W3T3M35GAC;
 					};
 					F11F3F811C89F5620053AB35 = {
 						CreatedOnToolsVersion = 7.2;
@@ -399,10 +400,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cameraDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.mobicom.cameraDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -410,10 +414,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cameraDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.mobicom.cameraDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -484,6 +491,7 @@
 				F11F3F981C89F5620053AB35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F11F3F991C89F5620053AB35 /* Build configuration list for PBXNativeTarget "cameraDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +500,7 @@
 				F11F3F9B1C89F5620053AB35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F11F3F9C1C89F5620053AB35 /* Build configuration list for PBXNativeTarget "cameraDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +509,7 @@
 				F11F3F9E1C89F5620053AB35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -11,22 +11,32 @@ import MobileCoreServices
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    // Main imageview
     @IBOutlet weak var imageView: UIImageView!
+    
+    // Indicates whether new photo has been taken
     var newMedia : Bool?
     
     @IBAction func useCamera(sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) { // only camera not video?
+        
+        // Check if device has a camera
+        // Only camera not video
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             
+            // Set delegate and source for UIImagePickerController
             let imagePicker = UIImagePickerController()
-            
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            imagePicker.mediaTypes = [kUTTypeImage as NSString as String/*, kUTTypeMovie as NSString as String*/]
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera // Assume camera only, if using video need to check for source type here
+            imagePicker.mediaTypes = [kUTTypeImage as NSString as String] // Sets mediaType to image, also have option here to add video as type in array
             imagePicker.allowsEditing = false
             
+            // Display camera interface
             self.presentViewController(imagePicker, animated: true, completion: nil)
             
+            // Indicates that a new photo has been taken
             newMedia = true
+        
+        // Else device does not have a camera; display alert
         } else {
             let alert = UIAlertController(
                 title: "No Camera",
@@ -92,7 +102,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }  else if mediaType == kUTTypeMovie as! String {
             // Code to support video here
-            print("vido")
+            print("video")
         }
     }
     
