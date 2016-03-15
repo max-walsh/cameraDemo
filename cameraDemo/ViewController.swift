@@ -81,13 +81,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        //func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
-        //if mediaType.isEqualToString(kUTTypeImage as! String) {
         if mediaType == kUTTypeImage as! String {
             let image = info[UIImagePickerControllerOriginalImage]
                 as! UIImage
@@ -97,7 +95,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self,
                     "image:didFinishSavingWithError:contextInfo:", nil)
-                //} else if mediaType.isEqualToString(kUTTypeMovie as! String) {
             }
             
         }  else if mediaType == kUTTypeMovie as! String {

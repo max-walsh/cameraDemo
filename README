@@ -1,0 +1,9 @@
+This app was created to demonstrate the use of the camera functionality within iOS. It focuses on using the UIImagePickerController class to utilize the native user interface for the camera.
+
+This app must be run on an actual iOS device to fully test its features. Running the app on a simulator will result in an alert message when trying to access the camera.
+
+links:
+https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImagePickerController_Class/
+
+Presentation (requires nd.edu email address):
+https://docs.google.com/a/nd.edu/presentation/d/1k3tuoqprHKdo2zUo_WCSFpmDdXv88DR_yRMWUeuhtOI/edit?usp=sharing
