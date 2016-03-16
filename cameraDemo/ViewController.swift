@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Indicates whether new photo has been taken
     var newMedia : Bool?
     
+    // called when camera button is pressed
     @IBAction func useCamera(sender: AnyObject) {
         
         // Check if device has a camera
@@ -56,17 +57,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // button for accesing the camera roll
     @IBAction func useCameraRoll(sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(
-            UIImagePickerControllerSourceType.SavedPhotosAlbum) {
-                let imagePicker = UIImagePickerController()
-                
+        
+        // check if savedPhotoAlbum is available as a source
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
+            
+                let imagePicker = UIImagePickerController() // create instance of imagePicker for the camera roll to use
+            
                 imagePicker.delegate = self
                 imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
                 imagePicker.mediaTypes = [kUTTypeImage as NSString as String]
                 imagePicker.allowsEditing = false
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-                newMedia = false // no picture was taken, leaves imageview the same
+            
+                self.presentViewController(imagePicker, animated: true, completion: nil) // show the camera roll
+                newMedia = false // no new picture was taken, only accessed from the camera roll
+            
         }
+        
     }
     
     

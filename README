@@ -4,6 +4,7 @@ This app must be run on an actual iOS device to fully test its features. Running
 
 links:
 https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImagePickerController_Class/
+https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVFoundationFramework/
 
-Presentation (requires nd.edu email address):
+Presentation (link requires nd.edu email address, pdf also available in repo):
 https://docs.google.com/a/nd.edu/presentation/d/1k3tuoqprHKdo2zUo_WCSFpmDdXv88DR_yRMWUeuhtOI/edit?usp=sharing
