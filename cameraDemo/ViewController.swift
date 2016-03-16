@@ -81,30 +81,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        // after using either the camera UI or camera roll this function is called on exit
+        let mediaType = info[UIImagePickerControllerMediaType] as! String // Sets media type, always image in our case
         
-        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        self.dismissViewControllerAnimated(true, completion: nil) //dismisses camera UI
         
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-        if mediaType == kUTTypeImage as! String {
+        if mediaType == kUTTypeImage as String {
             let image = info[UIImagePickerControllerOriginalImage]
-                as! UIImage
+                as! UIImage // sets image to the captured or selected image and casts it as UIImage
             
             imageView.image = image
             
-            if (newMedia == true) {
+            if (newMedia == true) {  // if its a new image, the image is saved
                 UIImageWriteToSavedPhotosAlbum(image, self,
                     "image:didFinishSavingWithError:contextInfo:", nil)
             }
             
-        }  else if mediaType == kUTTypeMovie as! String {
+        }  else if mediaType == kUTTypeMovie as String { // if a movie was captured
             // Code to support video here
             print("video")
         }
     }
     
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
-        
+        // shows alert if there was a problem saving the image
         if error != nil {
             let alert = UIAlertController(title: "Save Failed",
                 message: "Failed to save image",
@@ -120,6 +120,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        // simply dismisses imagePicker Controller if user presses cancel
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
